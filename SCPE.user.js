@@ -5,7 +5,7 @@
 // @description Steam Cards Page Enhancer - Adds some stats to each card page
 // @author      Enissay
 // @include     /^(https?:\/\/)?(www\.)?steamcommunity\.com\/(id|profiles)\/[^\/]+\/gamecards\/\d+\/?.*$/
-// @require 		https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @grant       none
 // ==/UserScript==
 
@@ -26,9 +26,9 @@ console.log.apply(console,console_info);
 function colorifyMissingCards(className, value) {
 
     if(value >= 0)
-        $J('span.' + className).css('color', '#FF000A');
+        $('span.' + className).css('color', '#FF000A');
     else
-        $J('span.' + className).css('color', '#0BFA17');
+        $('span.' + className).css('color', '#0BFA17');
 }
 
 /***************
@@ -37,7 +37,7 @@ function colorifyMissingCards(className, value) {
 var NbreOfLinesAdded = 4; // to edit if more lines added !!
 
 // Get current level
-var levelString = $J('div.badge_info_description').text();
+var levelString = $('div.badge_info_description').text();
 var re = /level\s+(\d+)\s*,/i;
 var myLevel = levelString.match(re) ? +(levelString.match(re))[1] : 0;
 var maxLevel = (myLevel <= 5) ? 5 : (myLevel < 10) ? 10 : 20;
@@ -62,12 +62,12 @@ var missingCardsToFullBadges = 0;
 var cardsListInfos = [];
 
 // loop through all cards
-$J('div.badge_detail_tasks > div.badge_card_set_card').each(function() {
-    var currentCount = +($J(this).find('div.badge_card_set_text_qty').text().replace(/\D+/g, '')); // using the unary op to convert strings to num "+XXX"... or "parseInt(num1, 10)"
+$('div.badge_detail_tasks > div.badge_card_set_card').each(function() {
+    var currentCount = +($(this).find('div.badge_card_set_text_qty').text().replace(/\D+/g, '')); // using the unary op to convert strings to num "+XXX"... or "parseInt(num1, 10)"
     
     cardsListInfos.push({
         count: currentCount,
-        cardObject: $J(this) // to colorify dupe cards
+        cardObject: $(this) // to colorify dupe cards
     });
     
     if (currentCount > (maxLevel - myLevel))
@@ -130,12 +130,12 @@ line4 += ' - [ ' + textFormat42 + ((missingCardsToFullBadges > 0) ? ' to ' : ' f
 
 // store link
 var gameStoreUrlFomat = "http://store.steampowered.com/app/GAME_ID/"
-var gameName = $J('div.badge_title').text().trim().match(/^(.*)Badge\s*$/i)[1].trim();
+var gameName = $('div.badge_title').text().trim().match(/^(.*)Badge\s*$/i)[1].trim();
 
-var gameStoreUrl = $J('div.badge_title').text().trim()
+var gameStoreUrl = $('div.badge_title').text().trim()
                    .match(/^(.*)Badge\s*$/i)[1].trim();
 var mySteamURL = gameStoreUrlFomat.replace( "GAME_ID",
-                                            $J(location).attr("href").match(/gamecards\/(\d+)/i)[1]
+                                            $(location).attr("href").match(/gamecards\/(\d+)/i)[1]
                                           );
 console.log("===> gameName: " + gameName);
 console.log("===> mySteamURL: " + mySteamURL);
@@ -150,7 +150,7 @@ var openStorePage = '<div class="floating-icon">\
  * Inject nodes
  ***************/
 // locate the title node where to insert infos
-var title = $J('div.badge_title');
+var title = $('div.badge_title');
 
 // Insert
 title.append(line1).append(line2).append(line3).append(line4).append(openStorePage);
@@ -168,16 +168,16 @@ colorifyMissingCards("readyBadgesCount", readyBadgesCount*(-1)); // *-1 to inver
 /***************
 * Apply styles
 ***************/     
-$J(document).find('.badge_title').css({'position': 'relative'
+$(document).find('.badge_title').css({'position': 'relative'
                                              });
 
-$J(document).find('.floating-icon').css({'position': 'absolute',
+$(document).find('.floating-icon').css({'position': 'absolute',
                                               'bottom': '2px',
                                               'right': '2px',
                                               //'background': '#B8A872'
                                              });
 
-$J(document).find('.floating-icon img').css({'display': 'block',
+$(document).find('.floating-icon img').css({'display': 'block',
                                                   'padding': '1px',
                                                   'cursor': 'pointer',
                                                   'width': '35px',
