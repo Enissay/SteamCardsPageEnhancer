@@ -5,6 +5,7 @@
 // @description Steam Cards Page Enhancer - Adds some stats to each card page
 // @author      Enissay
 // @include     /^(https?:\/\/)?(www\.)?steamcommunity\.com\/(id|profiles)\/[^\/]+\/gamecards\/\d+\/?.*$/
+// @require 		https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // @grant       none
 // ==/UserScript==
 
