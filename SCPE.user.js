@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        SteamCardsPageEnhancer
 // @namespace   http://steamcommunity.com/id/Enissay/
-// @version     0.2
+// @version     0.005
 // @description Steam Cards Page Enhancer - Adds some stats to each card page
 // @author      Enissay
 // @include     /^(https?:\/\/)?(www\.)?steamcommunity\.com\/(id|profiles)\/[^\/]+\/gamecards\/\d+\/?.*$/
@@ -15,7 +15,7 @@
  * Starting infos
  *****************/
 //console.log('%c ' + GM_info.script.name + ' script started', 'background: #222; color: #bada55');
-var console_info=["%c "+GM_info.script.name+" %c v"+GM_info.script.version+" by "+GM_info.script.author+" %c @ "+GM_info.script.namespace + " %c Started ",
+var console_info=["%c dscdwvwxv "+GM_info.script.name+" %c v"+GM_info.script.version+" by "+GM_info.script.author+" %c @ "+GM_info.script.namespace + " %c Started ",
                   "background: #000000;color: #7EBE45",
                   "background: #000000;color: #ffffff",
                   "",
