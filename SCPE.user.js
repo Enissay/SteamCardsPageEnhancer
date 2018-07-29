@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name        SteamCardsPageEnhancer
 // @namespace   http://steamcommunity.com/id/Enissay/
-// @version     0.1
+// @version     0.2
 // @description Steam Cards Page Enhancer - Adds some stats to each card page
 // @author      Enissay
 // @include     /^(https?:\/\/)?(www\.)?steamcommunity\.com\/(id|profiles)\/[^\/]+\/gamecards\/\d+\/?.*$/
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+// @downloadURL https://github.com/Enissay/SteamCardsPageEnhancer/raw/master/SCPE.user.js
+// @updateURL   https://github.com/Enissay/SteamCardsPageEnhancer/raw/master/SCPE.user.js
 // @grant       none
 // ==/UserScript==
 
